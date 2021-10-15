@@ -3,35 +3,30 @@ package com.example.uidesign
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
+import com.example.uidesign.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val backendCard = findViewById<LinearLayout>(R.id.layoutBackend)
-        val frontendCard = findViewById<LinearLayout>(R.id.layoutFrontend)
-        val mobileAppCard = findViewById<LinearLayout>(R.id.layoutMobile)
-        val qaCard = findViewById<LinearLayout>(R.id.layoutQA)
-
+        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // handle on click
 
-        backendCard.setOnClickListener{
+        binding.layoutBackend.setOnClickListener{
             val intent = Intent(this@MainActivity, BackendActivity::class.java)
             startActivity(intent)
         }
 
-        frontendCard.setOnClickListener{
+        binding.layoutFrontend.setOnClickListener{
             val intent = Intent(this@MainActivity, FrontendActivity::class.java)
             startActivity(intent)
         }
-        mobileAppCard.setOnClickListener{
+        binding.layoutMobile.setOnClickListener{
             val intent = Intent(this@MainActivity, MobileActivity::class.java)
             startActivity(intent)
         }
-        qaCard.setOnClickListener{
+        binding.layoutQA.setOnClickListener{
             val intent = Intent(this@MainActivity, QualityAcitivity::class.java)
             startActivity(intent)
         }
